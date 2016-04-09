@@ -9,6 +9,23 @@
 		<meta http-equiv = "description" content = "企业信息管理系统 - 公司公告">
 		<meta http-equiv = "Content-Type" content = "text/html;charset=UTF-8">
 		<Link rel="stylesheet" type="text/css" href="css/styles.css">
+		<script language="javascript">
+			function validNoticeAdd(theform){
+				var title = theform.title.value;
+				
+				
+				if(title ==""){
+					alert("公告标题不能为空！");
+					return false;
+				}
+				
+				
+
+				return true;
+			}	
+					
+
+		</script>				
 	</head>
 	<body>
 		<table height="100%" width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -98,11 +115,11 @@
 						</tr>
 					</table>
 					//内容区域
-					<form name="form1" action="notice_add.html" method="post"><b></b>
+					<form name="form1" action="notice_add.html" method="post" onsubmit="return validNoticeAdd(this);"><b></b>
 						<table border="0" width="100%">
 							<tr>
 								<td>公司标题</td>
-								<td><input type="text" name="year" maxlength="4" value="">
+								<td><input type="text" name="title" maxlength="4" value="">
 								</td>
 							</tr>
 

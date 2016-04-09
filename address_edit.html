@@ -9,6 +9,29 @@
 		<meta http-equiv = "description" content = "企业信息管理系统 - 通讯录管理">
 		<meta http-equiv = "Content-Type" content = "text/html;charset=UTF-8">
 		<Link rel="stylesheet" type="text/css" href="css/styles.css">
+		<script language="javascript">
+			function validAddressEdit(theform){
+				var name = theform.name.value;
+				var mobile = theform.mobile.value;
+				var email = theform.email.value;
+				if(name ==""){
+					alert("姓名不能为空！");
+					return false;
+				}
+				if(mobile==""){
+					alert("电话不能为空！");
+					return false;
+				}
+				if(email==""){
+					alert("邮箱不能为空！");
+					return false;
+				}
+
+				return true;
+			}	
+					
+
+		</script>
 	</head>
 	<body>
 		<table height="100%" width="100%" border="0" cellspacing="0"
@@ -104,7 +127,7 @@
 							</tr>
 						</table>
 
-						<form name="form1" action="address_edit.html" method="post"><b></b>
+						<form name="form1" action="address_edit.html" method="post" onsubmit="return validAddressEdit(this);"><b></b>
 						<input type="hidden" name="id" value="1">
 						<table border="0" width="100%">
 							<tr>

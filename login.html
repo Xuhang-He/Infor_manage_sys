@@ -9,6 +9,24 @@
 		<meta http-equiv = "description" content = "企业信息管理系统 - 登陆窗口">
 		<meta http-equiv = "Content-Type" content = "text/html;charset=UTF-8">
 		<Link rel="stylesheet" type="text/css" href="css/styles.css">
+			<script language="javascript">
+				function validLogin(theform){
+					var username = theform.username.value;
+					var password = theform.password.value;
+					if(username==""){
+						alert("用户名不能为空！");
+						return false; 
+					}
+
+					if(password==""){
+						alert("密码不能为空！");
+						return false;
+					}
+
+					return true;
+
+				}
+			</script>
 	</head>
 	<body bgcolor="#52BDFE">
 		
@@ -20,7 +38,7 @@
 							<td width="60%"></td>
 							
 							<td align="center">
-								<form name="form1" action="welcome.html" method="post">
+								<form name="form1" action="welcome.html" method="post" onsubmit="return validLogin(this);">
 									<table>
 										<tr>
 											<td> 用户名：</td>

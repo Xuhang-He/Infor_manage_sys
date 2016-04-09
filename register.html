@@ -9,6 +9,30 @@
 		<meta http-equiv = "description" content = "企业信息管理系统 - 注册窗口">
 		<meta http-equiv = "Content-Type" content = "text/html;charset=UTF-8">
 		<Link rel="stylesheet" type="text/css" href="css/styles.css">
+			<script language="javascript">
+				function validRegister(theform){
+					var username = theform.username.value;
+					var password1 = theform.password1.value;
+					var password2 = theform.password2.value;
+					if (username==""){
+						alert("用户名不能为空！");
+						return false;
+					}
+
+					if (password1==""|| password2=="") {
+						alert("密码不能为空！");
+						return false;
+					}
+					if (password1!=password2) {
+						alert("两次密码输入不同");
+						return false;
+					}
+
+					return true;
+
+				}
+
+			</script>
 	</head>
 	<body bgcolor="#52BDFE">
 		<table height ="100%" width="100%">
@@ -18,7 +42,7 @@
 			<tr>
 				<td width="60%"></td>
 				<td>
-					<form name="form1" action="register.htm" method="post">
+					<form name="form1" action="register.htm" method="post" onsubmit="return validRegister(this);">
 						<table width="200" border="0">
 							<tr>
 								<td colspan="2">

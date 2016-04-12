@@ -1,6 +1,14 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"
+		+request.getServerName()+":"+request.getServerPort()+path+"/";
+	
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
 <html>
 	<head>
+		<base href="<%=basePath%>">
 		<title> 企业信息管理系统 - 通讯录管理 </title>
 		<meta http-equiv = "pragma" content = "no-cache">
 		<meta http-equiv = "cache-control" content = "no-cache">
@@ -36,7 +44,7 @@
 								<tr>
 									<td>
 										<ul class="ulnotab">
-											<li><a href="welcome.html">首页面</a></li>
+											<li><a href="welcome.jsp">首页面</a></li>
 										</ul>
 									</td>
 								</tr>
@@ -48,8 +56,8 @@
 											<li><a href="#">通信工具</a></li>
 										</ul>
 										<ul>
-											<li><a href="address.html">通讯录管理</a></li>
-											<li><a href="sms.html">短消息管理</a></li>
+											<li><a href="address.jsp">通讯录管理</a></li>
+											<li><a href="sms.jsp">短消息管理</a></li>
 										</ul>
 									</td>
 								</tr>
@@ -61,8 +69,8 @@
 										</ul>
 
 										<ul>
-											<li><a href="schedule.html">日程安排</a></li>
-											<li><a href="worklog.html">工作记录</a></li>
+											<li><a href="schedule.jsp">日程安排</a></li>
+											<li><a href="worklog.jsp">工作记录</a></li>
 										</ul>
 									</td>
 								</tr>
@@ -75,8 +83,8 @@
 										</ul>
 
 										<ul>
-											<li><a href="notice.html">公司公告</a></li>
-											<li><a href="meeting.html">工作会议</a></li>
+											<li><a href="notice.jsp">公司公告</a></li>
+											<li><a href="meeting.jsp">工作会议</a></li>
 										</ul>
 									</td>
 								</tr>
@@ -84,7 +92,7 @@
 								<tr>
 									<td>
 										<ul class="ulnotab">
-											<li><a href="login.html">退出</a></li>
+											<li><a href="login.jsp">退出</a></li>
 										</ul>
 									</td>
 								</tr>
@@ -97,7 +105,7 @@
 						<table width="100%" class="position">
 							<tr>
 								<td>当前位置：通讯录管理</td>
-								<td align="right"><a href="address_add.html">新增联系人</a></td>
+								<td align="right"><a href="address_add.jsp">新增联系人</a></td>
 								<td width="20"></td>
 							</tr>
 						</table>
@@ -123,14 +131,14 @@
 								<td>IBM</td>
 								<td>北京</td>
 								<td>100085</td>
-								<td><a href="address_edit.html?id=1">修改</a>
-									<a href="address.html?id=1">删除</a>
+								<td><a href="address_edit.jsp?id=1">修改</a>
+									<a href="address.jsp?id=1">删除</a>
 								</td>
 							</tr>
 						</table>
 						
 						
-						<form name="form1" action="address.html" method="post">
+						<form name="form1" action="address.jsp" method="post">
 							<table border="0" width="100%" class="pager">
 								<tr>
 									<td align="left">每页记录数：<select name="pagesize"
@@ -152,9 +160,9 @@
 										<a href="javascript:document.all.pageNo.value='2';document.all.form1.submit();">后一页</a>	
 										<a href="javascript:document.all.pageNo.value='3';document.all.form1.submit();">尾页</a>		
 										<select name="pageNo" onchange="document.all.form1.submit();">
-											<option value"1" selected="selected">1</option>
-											<option value"2" >2</option>
-											<option value"3" >3</option>
+											<option value="1" selected="selected">1</option>
+											<option value="2" >2</option>
+											<option value="3" >3</option>
 										</select>
 									</td>
 									<td width="20"></td>

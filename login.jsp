@@ -1,6 +1,14 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"
+		+request.getServerName()+":"+request.getServerPort()+path+"/";
+	
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
 <html>
 	<head>
+		<base href="<%=basePath%>">
 		<title> 企业信息管理系统 - 登录 </title>
 		<meta http-equiv = "pragma" content = "no-cache">
 		<meta http-equiv = "cache-control" content = "no-cache">
@@ -38,7 +46,7 @@
 							<td width="60%"></td>
 							
 							<td align="center">
-								<form name="form1" action="welcome.html" method="post" onsubmit="return validLogin(this);">
+								<form name="form1" action="welcome.jsp" method="post" onsubmit="return validLogin(this);">
 									<table>
 										<tr>
 											<td> 用户名：</td>
@@ -52,7 +60,7 @@
 										</tr>
 
 										<tr>
-										<td colspan="2" align="center"><a href="register.html">注册新用户</a> <input type="submit" name="submit" value ="登陆系统"></td>
+										<td colspan="2" align="center"><a href="register.jsp">注册新用户</a> <input type="submit" name="submit" value ="登陆系统"></td>
 
 										</tr>	
 									</table>

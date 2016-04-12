@@ -1,31 +1,42 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"
+		+request.getServerName()+":"+request.getServerPort()+path+"/";
+	
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
 <html>
 	<head>
-		<title> 企业信息管理系统 - 公司公告 </title>
+		<base href="<%=basePath%>">
+		<title> 企业信息管理系统 - 短消息管理 </title>
 		<meta http-equiv = "pragma" content = "no-cache">
 		<meta http-equiv = "cache-control" content = "no-cache">
 		<meta http-equiv = "expires" content = "0">
 		<meta http-equiv = "keywords" content = "企业，信息，管理">
-		<meta http-equiv = "description" content = "企业信息管理系统 - 公司公告">
+		<meta http-equiv = "description" content = "企业信息管理系统 - 短消息管理">
 		<meta http-equiv = "Content-Type" content = "text/html;charset=UTF-8">
 		<Link rel="stylesheet" type="text/css" href="css/styles.css">
 		<script language="javascript">
-			function validNoticeAdd(theform){
-				var title = theform.title.value;
+			function validSmsAdd(theform){
+				var username = theform.username.value;
+				var message = theform.message.value;
 				
-				
-				if(title ==""){
-					alert("公告标题不能为空！");
+				if(username ==""){
+					alert("接受者不能为空！");
 					return false;
 				}
-				
+				if(message==""){
+					alert("消息内容不能为空！");
+					return false;
+				}
 				
 
 				return true;
 			}	
 					
 
-		</script>				
+		</script>	
 	</head>
 	<body>
 		<table height="100%" width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -49,7 +60,7 @@
 						<tr>
 							<td>
 								<ul class="ulnotab">
-									<li><a href="welcome.html">首页面</a></li>
+									<li><a href="welcome.jsp">首页面</a></li>
 								</ul>
 							</td>
 						</tr>
@@ -61,8 +72,8 @@
 									<li><a href="#">通信工具</a></li>
 								</ul>
 								<ul>
-									<li><a href="address.html">通讯录管理</a></li>
-									<li><a href="sms.html">短消息管理</a></li>
+									<li><a href="address.jsp">通讯录管理</a></li>
+									<li><a href="sms.jsp">短消息管理</a></li>
 								</ul>
 							</td>
 						</tr>
@@ -74,8 +85,8 @@
 								</ul>
 
 								<ul>
-									<li><a href="schedule.html">日程安排</a></li>
-									<li><a href="worklog.html">工作记录</a></li>
+									<li><a href="schedule.jsp">日程安排</a></li>
+									<li><a href="worklog.jsp">工作记录</a></li>
 								</ul>
 							</td>
 						</tr>
@@ -88,8 +99,8 @@
 								</ul>
 
 								<ul>
-									<li><a href="notice.html">公司公告</a></li>
-									<li><a href="meeting.html">工作会议</a></li>
+									<li><a href="notice.jsp">公司公告</a></li>
+									<li><a href="meeting.jsp">工作会议</a></li>
 								</ul>
 							</td>
 						</tr>
@@ -97,7 +108,7 @@
 						<tr>
 							<td>
 								<ul class="ulnotab">
-									<li><a href="login.html">退出</a></li>
+									<li><a href="login.jsp">退出</a></li>
 								</ul>
 							</td>
 						</tr>
@@ -109,41 +120,30 @@
 					//当前位置栏
 					<table width="100%" class="position">
 						<tr>
-							<td>当前位置：公司公告&gt;&gt;新增公司公告</td>
-							<td align="right"><a href="notice.html">返回公司公告主页面</a></td>
+							<td>当前位置：短消息管理&gt;&gt;新增短消息</td>
+							<td align="right"><a href="sms.jsp">返回短消息管理主页面</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
 					//内容区域
-					<form name="form1" action="notice_add.html" method="post" onsubmit="return validNoticeAdd(this);"><b></b>
+					<form name="form1" action="sms_add.jsp" method="post" onsubmit="return validSmsAdd(this);"><b></b>
 						<table border="0" width="100%">
 							<tr>
-								<td>公司标题</td>
-								<td><input type="text" name="title" maxlength="4" value="">
+								<td>接受者</td>
+								<td><input type="text" name="username" maxlength="50" value="">
 								</td>
-							</tr>
 
-							
+							</tr>
 
 							<tr>
-								<td>公司内容</td>
-								<td><textarea name="content" cols="60" rows="15"></textarea>
-								</td>
+								<td>消息内容</td>
+								<td><textarea name="message" cols="60" rows="15"></textarea></td>
 							</tr>
-
 							<tr>
 								<td colspan="2"><input type="submit" value="提交"></td>
 							</tr>
-
-
-
-
-
 						</table>
-
-					
-
-					
+					</form>
 
 				</td>
 			</tr>

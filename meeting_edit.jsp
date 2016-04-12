@@ -1,44 +1,48 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"
+		+request.getServerName()+":"+request.getServerPort()+path+"/";
+	
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
 <html>
 	<head>
-		<title> 企业信息管理系统 - 日程安排 </title>
+		<base href="<%=basePath%>">
+		<title> 企业信息管理系统 - 公司会议 </title>
 		<meta http-equiv = "pragma" content = "no-cache">
 		<meta http-equiv = "cache-control" content = "no-cache">
 		<meta http-equiv = "expires" content = "0">
 		<meta http-equiv = "keywords" content = "企业，信息，管理">
-		<meta http-equiv = "description" content = "企业信息管理系统 - 日程安排">
+		<meta http-equiv = "description" content = "企业信息管理系统 - 公司会议">
 		<meta http-equiv = "Content-Type" content = "text/html;charset=UTF-8">
 		<Link rel="stylesheet" type="text/css" href="css/styles.css">
 		<script language="javascript">
-			function validScheduleAdd(theform){
-				var year = theform.year.value;
-				var month = theform.month.value;
-				var day = theform.day.value;
-				var plan = theform.plan.value;
+			function validMeetingEdit(theform){
+				var starttime = theform.starttime.value;
+				var address = theform.address.value;
+				var title = theform.title.value;
 				
-				if(year ==""){
-					alert("年份不能为空！");
+				if(starttime ==""){
+					alert("会议开始时间不能为空！");
 					return false;
 				}
-				if(month==""){
-					alert("月份不能为空！");
+				if(address ==""){
+					alert("会议地址不能为空！");
 					return false;
 				}
-				if(day ==""){
-					alert("日期不能为空！");
+				if(title ==""){
+					alert("会议标题不能为空！");
 					return false;
 				}
-				if(plan==""){
-					alert("安排内容不能为空！");
-					return false;
-				}
+				
 				
 
 				return true;
 			}	
 					
 
-		</script>		
+		</script>			
 	</head>
 	<body>
 		<table height="100%" width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -62,7 +66,7 @@
 						<tr>
 							<td>
 								<ul class="ulnotab">
-									<li><a href="welcome.html">首页面</a></li>
+									<li><a href="welcome.jsp">首页面</a></li>
 								</ul>
 							</td>
 						</tr>
@@ -74,8 +78,8 @@
 									<li><a href="#">通信工具</a></li>
 								</ul>
 								<ul>
-									<li><a href="address.html">通讯录管理</a></li>
-									<li><a href="sms.html">短消息管理</a></li>
+									<li><a href="address.jsp">通讯录管理</a></li>
+									<li><a href="sms.jsp">短消息管理</a></li>
 								</ul>
 							</td>
 						</tr>
@@ -87,8 +91,8 @@
 								</ul>
 
 								<ul>
-									<li><a href="schedule.html">日程安排</a></li>
-									<li><a href="worklog.html">工作记录</a></li>
+									<li><a href="schedule.jsp">日程安排</a></li>
+									<li><a href="worklog.jsp">工作记录</a></li>
 								</ul>
 							</td>
 						</tr>
@@ -101,8 +105,8 @@
 								</ul>
 
 								<ul>
-									<li><a href="notice.html">公司公告</a></li>
-									<li><a href="meeting.html">工作会议</a></li>
+									<li><a href="notice.jsp">公司公告</a></li>
+									<li><a href="meeting.jsp">工作会议</a></li>
 								</ul>
 							</td>
 						</tr>
@@ -110,7 +114,7 @@
 						<tr>
 							<td>
 								<ul class="ulnotab">
-									<li><a href="login.html">退出</a></li>
+									<li><a href="login.jsp">退出</a></li>
 								</ul>
 							</td>
 						</tr>
@@ -122,35 +126,47 @@
 					//当前位置栏
 					<table width="100%" class="position">
 						<tr>
-							<td>当前位置：日程安排&gt;&gt;新增日程安排</td>
-							<td align="right"><a href="schedule.html">返回日程安排主页面</a></td>
+							<td>当前位置：公司会议&gt;&gt;修改公司会议</td>
+							<td align="right"><a href="meeting.jsp">返回公司会议主页面</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
 					//内容区域
-					<form name="form1" action="schedule_add.html" method="post" onsubmit="return validScheduleAdd(this);"><b></b>
+					<form name="form1" action="meeting_edit.jsp" method="post" onsubmit="return validMeetingEdit(this);"><b></b>
 						<table border="0" width="100%">
 							<tr>
-								<td>年份</td>
-								<td><input type="text" name="year" maxlength="4" value="">
+								<td>会议填写人</td>
+								<td><input type="text" name="sender" maxlength="4" value="admin" readonly="readonly">
 								</td>
 							</tr>
 
 							<tr>
-								<td>月份</td>
-								<td><input type="text" name="month" maxlength="2" value="">
+								<td>会议开始时间</td>
+								<td><input type="text" name="starttime" maxlength="100" value="2007-08-31 09:00">
 								</td>
 							</tr>
 
 							<tr>
-								<td>日期</td>
-								<td><input type="text" name="day" maxlength="2" value="">
+								<td>会议结束时间</td>
+								<td><input type="text" name="endtime" maxlength="100" value="2007-08-31 11:00">
 								</td>
 							</tr>
 
 							<tr>
-								<td>安排内容</td>
-								<td><textarea name="plan" cols="60" rows="15"></textarea>
+								<td>会议地点</td>
+								<td><input type="text" name="address" maxlength="100" value="北京">
+								</td>
+							</tr>
+
+							<tr>
+								<td>会议标题</td>
+								<td><input type="text" name="title" maxlength="100" value="java 高手真经讨论会">
+								</td>
+							</tr>
+
+							<tr>
+								<td>会议内容</td>
+								<td><textarea name="content" cols="60" rows="15">java 高手真经讨论会</textarea>
 								</td>
 							</tr>
 
@@ -163,7 +179,7 @@
 
 
 						</table>
-
+</form>>
 					
 
 					

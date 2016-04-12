@@ -1,12 +1,20 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"
+		+request.getServerName()+":"+request.getServerPort()+path+"/";
+	
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
 <html>
 	<head>
-		<title> 企业信息管理系统 - 工作会议 </title>
+		<base href="<%=basePath%>">
+		<title> 企业信息管理系统 - 日程安排 </title>
 		<meta http-equiv = "pragma" content = "no-cache">
 		<meta http-equiv = "cache-control" content = "no-cache">
 		<meta http-equiv = "expires" content = "0">
 		<meta http-equiv = "keywords" content = "企业，信息，管理">
-		<meta http-equiv = "description" content = "企业信息管理系统 - 工作会议">
+		<meta http-equiv = "description" content = "企业信息管理系统 - 日程安排">
 		<meta http-equiv = "Content-Type" content = "text/html;charset=UTF-8">
 		<Link rel="stylesheet" type="text/css" href="css/styles.css">
 	</head>
@@ -32,7 +40,7 @@
 						<tr>
 							<td>
 								<ul class="ulnotab">
-									<li><a href="welcome.html">首页面</a></li>
+									<li><a href="welcome.jsp">首页面</a></li>
 								</ul>
 							</td>
 						</tr>
@@ -44,8 +52,8 @@
 									<li><a href="#">通信工具</a></li>
 								</ul>
 								<ul>
-									<li><a href="address.html">通讯录管理</a></li>
-									<li><a href="sms.html">短消息管理</a></li>
+									<li><a href="address.jsp">通讯录管理</a></li>
+									<li><a href="sms.jsp">短消息管理</a></li>
 								</ul>
 							</td>
 						</tr>
@@ -57,8 +65,8 @@
 								</ul>
 
 								<ul>
-									<li><a href="schedule.html">日程安排</a></li>
-									<li><a href="worklog.html">工作记录</a></li>
+									<li><a href="schedule.jsp">日程安排</a></li>
+									<li><a href="worklog.jsp">工作记录</a></li>
 								</ul>
 							</td>
 						</tr>
@@ -71,8 +79,8 @@
 								</ul>
 
 								<ul>
-									<li><a href="notice.html">公司公告</a></li>
-									<li><a href="meeting.html">工作会议</a></li>
+									<li><a href="notice.jsp">公司公告</a></li>
+									<li><a href="meeting.jsp">工作会议</a></li>
 								</ul>
 							</td>
 						</tr>
@@ -80,7 +88,7 @@
 						<tr>
 							<td>
 								<ul class="ulnotab">
-									<li><a href="login.html">退出</a></li>
+									<li><a href="login.jsp">退出</a></li>
 								</ul>
 							</td>
 						</tr>
@@ -92,8 +100,8 @@
 					//当前位置栏
 					<table width="100%" class="position">
 						<tr>
-							<td>当前位置：工作会议</td>
-							<td align="right"><a href="meeting_add.html">新增工作会议</a></td>
+							<td>当前位置：日程安排</td>
+							<td align="right"><a href="schedule_add.jsp">新增日程安排</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
@@ -101,30 +109,32 @@
 
 					<table border="0" width="100%">
 						<tr class="tableheader">
-							<td>会议填写人</td>
-							<td>会议开始时间</td>
-							<td>会议结束时间</td>
-							<td>会议地点</td>
-							<td>会议标题</td>
-							<td>会议内容</td>
+							<td>年份</td>
+							<td>月份</td>
+							<td>日期</td>
+							<td>安排内容</td>
 							<td>操作</td>
 						</tr>
 						<tr>
-							<td>admin</td>
-							<td>2007--08-30 09：00</td>
-							<td>2007--08-30 11：00</td>
-							<td>北京</td>
+							<td>2007</td>
+							<td>12</td>
+							<td>1</td>
 							<td>java高手真经讨论会</td>
-							<td>java高手真经讨论会</td>
-							<td><a href='meeting_edit.html?id=8'>修改</a> <a href="meeting.html?id=9">删除</a></td>
+							<td><a href='schedule_edit.jsp?id=9'>修改</a> <a href="schedule.jsp?id=9">删除</a></td>
 						</tr>
 
-						
+						<tr>
+							<td>2007</td>
+							<td>8</td>
+							<td>30</td>
+							<td>java高手真经讨论会</td>
+							<td><a href='schedule_edit.jsp?id=8'>修改</a> <a href="schedule.jsp?id=8">删除</a></td>
+						</tr>
 
 					</table>
 					//分页栏
 
-					<form name="form1" action="meeting.html" method="post">
+					<form name="form1" action="schedule.jsp" method="post">
 						<table border="0" width="100%" class="pager">
 							<tr>
 								<td align="left">每页记录数： <select name ="pagesize"

@@ -46,7 +46,7 @@
 							<td width="60%"></td>
 							
 							<td align="center">
-								<form name="form1" action="welcome.jsp" method="post" onsubmit="return validLogin(this);">
+								<form name="form1" action="action/login.jsp" method="post" onsubmit="return validLogin(this);">
 									<table>
 										<tr>
 											<td> 用户名：</td>

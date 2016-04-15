@@ -5,6 +5,10 @@
 		+request.getServerName()+":"+request.getServerPort()+path+"/";
 	
 %>
+<% 
+	String pageSize =(String) request.getAttribute("pageSize");
+	String pageNo =(String) request.getAttribute("pageNo");
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
 <html>
 	<head>
@@ -58,119 +62,56 @@
 			<tr>
 				<td colspan="2" height="200">
 					
-					<table height="200" background="images/banner.jpg" border="0" cellspacing ="0" cellpadding="0" width="100%">
-						<tr>
-							<td>
-							</td>
-						</tr>
-					</table>
+					<%@ include file="inc/top.jsp" %>
 				</td>	
 			</tr>
 
 			<tr>
 				<td width="160" bgcolor="#EEEEEE" valign="top" height="100%">
-					//菜单栏
-					<table width="100%" bgcolor="#EEEEEE">
-
-						<tr>
-							<td>
-								<ul class="ulnotab">
-									<li><a href="welcome.jsp">首页面</a></li>
-								</ul>
-							</td>
-						</tr>
-
-
-						<tr>
-							<td>
-								<ul class="ulnotab">
-									<li><a href="#">通信工具</a></li>
-								</ul>
-								<ul>
-									<li><a href="address.jsp">通讯录管理</a></li>
-									<li><a href="sms.jsp">短消息管理</a></li>
-								</ul>
-							</td>
-						</tr>
-
-						<tr>
-							<td>
-								<ul class="ulnotab">
-									<li><a href="#">个人信息管理</a></li>
-								</ul>
-
-								<ul>
-									<li><a href="schedule.jsp">日程安排</a></li>
-									<li><a href="worklog.jsp">工作记录</a></li>
-								</ul>
-							</td>
-						</tr>
-
-
-						<tr>
-							<td>
-								<ul class="ulnotab">
-									<li><a href="#">企业管理</a></li>
-								</ul>
-
-								<ul>
-									<li><a href="notice.jsp">公司公告</a></li>
-									<li><a href="meeting.jsp">工作会议</a></li>
-								</ul>
-							</td>
-						</tr>
-
-						<tr>
-							<td>
-								<ul class="ulnotab">
-									<li><a href="login.jsp">退出</a></li>
-								</ul>
-							</td>
-						</tr>
-
-
-					</table>
+					<%@ include file="inc/menu.jsp" %>
 				</td>
 				<td align="left" valign="top">
 					//当前位置栏
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：工作记录&gt;&gt;修改工作记录</td>
-							<td align="right"><a href="worklog.jsp">返回工作记录主页面</a></td>
+							<td align="right"><a href="action/worklog.jsp?method=list&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">返回工作记录主页面</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
 					//内容区域
-					<form name="form1" action="worklog_edit.jsp" method="post" onsubmit="return validWorklogEdit(this);">
-						<input type="hidden" name="id" value="8">
+					<form name="form1" action="action/worklog.jsp?method=update" method="post" onsubmit="return validWorklogEdit(this);">
+						<input type="hidden" name="id" value="<%=request.getAttribute("id")%>">
+						<input type="hidden" name="pageSize" value="<%=request.getAttribute("pageSize")%>">
+						<input type="hidden" name="pageNo" value="<%=request.getAttribute("pageNo")%>">
 						<table border="0" width="100%">
 							<tr>
 								<td>年份</td>
-								<td><input type="text" name="year" maxlength="4" value="2007">
+								<td><input type="text" name="year" maxlength="4" value="<%=request.getAttribute("year")%>">
 								</td>
 							</tr> 
 
 							<tr>
 								<td>月份</td>
-								<td><input type="text" name="month" maxlength="2" value="8">
+								<td><input type="text" name="month" maxlength="2" value="<%=request.getAttribute("month")%>">
 								</td>
 							</tr> 
 
 							<tr>
 								<td>日期</td>
-								<td><input type="text" name="day" maxlength="2" value="30">
+								<td><input type="text" name="day" maxlength="2" value="<%=request.getAttribute("day")%>">
 								</td>
 							</tr> 
 
 							<tr>
 								<td>记录标题</td>
-								<td><input type="text" name="title" maxlength="100" value="javaweb">
+								<td><input type="text" name="title" maxlength="100" value="<%=request.getAttribute("title")%>">
 								</td>
 							</tr> 
 
 							<tr>
 								<td>记录内容</td>
-								<td><textarea name="description" cols="60" rows="15">java高手真经讨论会</textarea>
+								<td><textarea name="description" cols="60" rows="15"><%=request.getAttribute("description")%></textarea>
 								</td>
 							</tr>
 
@@ -192,8 +133,7 @@
 
 			<tr>
 				<td colspan="2" align="center">
-					//版权信息
-					<hr><font face="仿宋">Copyright <span class=fontArial>&copy;</span>何旭杭版权所有</font>
+					<%@ include file="inc/foot.jsp" %>
 				</td>
 			</tr>
 		</table>

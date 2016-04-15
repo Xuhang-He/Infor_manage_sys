@@ -5,6 +5,10 @@
 		+request.getServerName()+":"+request.getServerPort()+path+"/";
 	
 %>
+<% 
+	String pageSize =(String) request.getAttribute("pageSize");
+	String pageNo =(String) request.getAttribute("pageNo");
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
 <html>
 	<head>
@@ -49,124 +53,62 @@
 			<tr>
 				<td colspan="2" height="200">
 					
-					<table height="200" background="images/banner.jpg" border="0" cellspacing ="0" cellpadding="0" width="100%">
-						<tr>
-							<td>
-							</td>
-						</tr>
-					</table>
+					<%@ include file="inc/top.jsp" %>
 				</td>	
 			</tr>
 
 			<tr>
 				<td width="160" bgcolor="#EEEEEE" valign="top" height="100%">
-					//菜单栏
-					<table width="100%" bgcolor="#EEEEEE">
-
-						<tr>
-							<td>
-								<ul class="ulnotab">
-									<li><a href="welcome.jsp">首页面</a></li>
-								</ul>
-							</td>
-						</tr>
-
-
-						<tr>
-							<td>
-								<ul class="ulnotab">
-									<li><a href="#">通信工具</a></li>
-								</ul>
-								<ul>
-									<li><a href="address.jsp">通讯录管理</a></li>
-									<li><a href="sms.jsp">短消息管理</a></li>
-								</ul>
-							</td>
-						</tr>
-
-						<tr>
-							<td>
-								<ul class="ulnotab">
-									<li><a href="#">个人信息管理</a></li>
-								</ul>
-
-								<ul>
-									<li><a href="schedule.jsp">日程安排</a></li>
-									<li><a href="worklog.jsp">工作记录</a></li>
-								</ul>
-							</td>
-						</tr>
-
-
-						<tr>
-							<td>
-								<ul class="ulnotab">
-									<li><a href="#">企业管理</a></li>
-								</ul>
-
-								<ul>
-									<li><a href="notice.jsp">公司公告</a></li>
-									<li><a href="meeting.jsp">工作会议</a></li>
-								</ul>
-							</td>
-						</tr>
-
-						<tr>
-							<td>
-								<ul class="ulnotab">
-									<li><a href="login.jsp">退出</a></li>
-								</ul>
-							</td>
-						</tr>
-
-
-					</table>
+					<%@ include file="inc/menu.jsp" %>
 				</td>
 				<td align="left" valign="top">
 					//当前位置栏
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：公司会议&gt;&gt;修改公司会议</td>
-							<td align="right"><a href="meeting.jsp">返回公司会议主页面</a></td>
+							<td align="right"><a href="action/meeting.jsp?method=list&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">返回公司会议主页面</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
 					//内容区域
-					<form name="form1" action="meeting_edit.jsp" method="post" onsubmit="return validMeetingEdit(this);"><b></b>
+					<form name="form1" action="action/meeting.jsp?method=update" method="post" onsubmit="return validMeetingEdit(this);"><b></b>
+						<input type="hidden" name="id" value="<%=request.getAttribute("id")%>">
+						<input type="hidden" name="pageSize" value="<%=request.getAttribute("pageSize")%>">
+						<input type="hidden" name="pageNo" value="<%=request.getAttribute("pageNo")%>">
 						<table border="0" width="100%">
 							<tr>
 								<td>会议填写人</td>
-								<td><input type="text" name="sender" maxlength="4" value="admin" readonly="readonly">
+								<td><input type="text" name="sender" maxlength="4" value="<%=request.getAttribute("sender")%>" readonly="readonly">
 								</td>
 							</tr>
 
 							<tr>
 								<td>会议开始时间</td>
-								<td><input type="text" name="starttime" maxlength="100" value="2007-08-31 09:00">
+								<td><input type="text" name="starttime" maxlength="100" value="<%=request.getAttribute("starttime")%>">
 								</td>
 							</tr>
 
 							<tr>
 								<td>会议结束时间</td>
-								<td><input type="text" name="endtime" maxlength="100" value="2007-08-31 11:00">
+								<td><input type="text" name="endtime" maxlength="100" value="<%=request.getAttribute("endtime")%>">
 								</td>
 							</tr>
 
 							<tr>
 								<td>会议地点</td>
-								<td><input type="text" name="address" maxlength="100" value="北京">
+								<td><input type="text" name="address" maxlength="100" value="<%=request.getAttribute("address")%>">
 								</td>
 							</tr>
 
 							<tr>
 								<td>会议标题</td>
-								<td><input type="text" name="title" maxlength="100" value="java 高手真经讨论会">
+								<td><input type="text" name="title" maxlength="100" value="<%=request.getAttribute("title")%>">
 								</td>
 							</tr>
 
 							<tr>
 								<td>会议内容</td>
-								<td><textarea name="content" cols="60" rows="15">java 高手真经讨论会</textarea>
+								<td><textarea name="content" cols="60" rows="15"><%=request.getAttribute("content")%></textarea>
 								</td>
 							</tr>
 
@@ -179,7 +121,7 @@
 
 
 						</table>
-</form>>
+</form>
 					
 
 					
@@ -189,8 +131,7 @@
 
 			<tr>
 				<td colspan="2" align="center">
-					//版权信息
-					<hr><font face="仿宋">Copyright <span class=fontArial>&copy;</span>何旭杭版权所有</font>
+					<%@ include file="inc/foot.jsp" %>
 				</td>
 			</tr>
 		</table>

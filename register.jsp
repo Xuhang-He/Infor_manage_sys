@@ -126,7 +126,7 @@
 			<tr>
 				<td width="60%"></td>
 				<td>
-					<form name="form1" action="register.jsp" method="post" onsubmit="return validRegister(this);">
+					<form name="form1" action="action/register.jsp" method="post" onsubmit="return validRegister(this);">
 						<table width="200" border="0">
 							<tr>
 								<td colspan="2">
@@ -136,7 +136,7 @@
 							
 							<tr>
 								<td>*用户名</td>
-								<td><input type="text" Id="username" size="15" onchange="checkUsername();"></td>
+								<td><input type="text" name="username" Id="username" size="15" onchange="checkUsername();"></td>
 							</tr>
 
 							<tr>

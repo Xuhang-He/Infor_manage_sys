@@ -5,10 +5,7 @@
 		+request.getServerName()+":"+request.getServerPort()+path+"/";
 	
 %>
-<% 
-	String pageSize =(String) request.getAttribute("pageSize");
-	String pageNo = (String) request.getAttribute("pageNo");
-%>
+
 <%@ page import="java.util.*" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
 <html>
@@ -76,14 +73,14 @@
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：工作记录&gt;&gt;新增工作记录</td>
-							<td align="right"><a href="worklog.do?method=list&pageSize=<%= pageSize %>&pageNo=<%= pageNo%>">返回工作记录主页面</a></td>
+							<td align="right"><a href="worklog.do?method=list&pageSize=${requestScope.pageSize}&pageNo=${requestScope.pageNo}">返回工作记录主页面</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
 					//内容区域
 					<form name="form1" action="worklog.do?method=insert" method="post" onsubmit="return validWorklogAdd(this);"><b></b>
-						<input type="hidden" name="pageSize" value="<%=pageSize %>">
-						<input type="hidden" name="pageNo" value="<%=pageNo %>">
+						<input type="hidden" name="pageSize" value="${requestScope.pageSize}">
+						<input type="hidden" name="pageNo" value="${requestScope.pageNo}">
 						<table border="0" width="100%">
 							<tr>
 								<td>年份</td>

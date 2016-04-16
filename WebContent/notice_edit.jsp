@@ -5,10 +5,7 @@
 		+request.getServerName()+":"+request.getServerPort()+path+"/";
 	
 %>
-<% 
-	String pageSize =(String) request.getAttribute("pageSize");
-	String pageNo =(String) request.getAttribute("pageNo");
-%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
 <html>
 	<head>
@@ -57,7 +54,7 @@
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：公司公告&gt;&gt;修改公司公告</td>
-							<td align="right"><a href="notice.do?method=list&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">返回公司公告主页面</a></td>
+							<td align="right"><a href="notice.do?method=list&pageSize=${requestScope.pageSize}&pageNo=${requestScope.pageNo}">返回公司公告主页面</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
@@ -69,13 +66,13 @@
 						<table border="0" width="100%">
 							<tr>
 								<td>公告填写人</td>
-								<td><input type="text" name="sender" maxlength="4" value="<%=request.getAttribute("sender")%>" readonly="readonly">
+								<td><input type="text" name="sender" maxlength="4" value="${requestScope.sender}" readonly="readonly">
 								</td>
 							</tr> 
 
 							<tr>
 								<td>公告标题</td>
-								<td><input type="text" name="title" maxlength="100" value="<%=request.getAttribute("title")%>">
+								<td><input type="text" name="title" maxlength="100" value="${requestScope.title}">
 								</td>
 							</tr> 
 
@@ -83,7 +80,7 @@
 
 							<tr>
 								<td>公告内容</td>
-								<td><textarea name="content" cols="60" rows="15">j<%=request.getAttribute("content")%></textarea>
+								<td><textarea name="content" cols="60" rows="15">${requestScope.content}</textarea>
 								</td>
 							</tr>
 

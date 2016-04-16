@@ -8,7 +8,7 @@
 %>
 <% 
 	String pageSize =(String) request.getAttribute("pageSize");
-	String pageNo = (String) request.getAttribute("pageNo");
+	String pageNo =(String) request.getAttribute("pageNo");
 %>
 <%@ page import="java.util.*" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
@@ -47,7 +47,7 @@
 						<table width="100%" class="position">
 							<tr>
 								<td>当前位置：通讯录管理</td>
-								<td align="right"><a href="address.do?method=add&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">新增联系人</a></td>
+								<td align="right"><a href="address.do?method=add&pageSize=${requestScope.pageSize}&pageNo=${requestScope.pageNo}">新增联系人</a></td>
 								<td width="20"></td>
 							</tr>
 						</table>
@@ -84,9 +84,9 @@
 								<td><%=hash.get("address")%></td>
 								<td><%=hash.get("postcode")%></td>
 								<td><a href="address.do?method=edit&id=<%= id %>
-								&pageSize=<%=pageSize %>&pageNo=<%=pageNo %>">修改</a>
+								&pageSize=${requestScope.pageSize}&pageNo=${requestScope.pageNo}">修改</a>
 									<a href="address.do?method=delete&id=<%= id %>
-								&pageSize=<%=pageSize %>&pageNo=<%=pageNo %>">删除</a>
+								&pageSize=${requestScope.pageSize}&pageNo=${requestScope.pageNo}">删除</a>
 								</td>
 							</tr>
 							<%
@@ -127,15 +127,15 @@
 									</select>
 									</td>
 
-									<td align="center">总记录数：<%= request.getAttribute("rowCount") %></td>
+									<td align="center">总记录数：${requestScope.rowCount}</td>
 									<td align="right">
-										<a href="javascript:document.all.pageNo.value='<%=request.getAttribute("pageFirstNo") %>';
+										<a href="javascript:document.all.pageNo.value='${requestScope.pageFirstNo}';
 											document.all.form1.submit();">首页</a>	
-										<a href="javascript:document.all.pageNo.value='<%=request.getAttribute("pagePreNo") %>';
+										<a href="javascript:document.all.pageNo.value='${requestScope.pagePreNo}';
 											document.all.form1.submit();">前一页</a>	
-										<a href="javascript:document.all.pageNo.value='<%=request.getAttribute("pageNextNo") %>';
+										<a href="javascript:document.all.pageNo.value='${requestScope.pageNextNo}';
 											document.all.form1.submit();">后一页</a>	
-										<a href="javascript:document.all.pageNo.value='<%=request.getAttribute("pageLastNo") %>';
+										<a href="javascript:document.all.pageNo.value='${requestScope.pageLastNo}';
 											document.all.form1.submit();">尾页</a>		
 										<select name="pageNo" onchange="document.all.form1.submit();">
 											<%

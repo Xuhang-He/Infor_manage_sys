@@ -5,10 +5,7 @@
 		+request.getServerName()+":"+request.getServerPort()+path+"/";
 	
 %>
-<% 
-	String pageSize =(String) request.getAttribute("pageSize");
-	String pageNo =(String) request.getAttribute("pageNo");
-%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
 <html>
 	<head>
@@ -66,49 +63,49 @@
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：公司会议&gt;&gt;修改公司会议</td>
-							<td align="right"><a href="meeting.do?method=list&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">返回公司会议主页面</a></td>
+							<td align="right"><a href="meeting.do?method=list&pageSize=${requestScope.pageSize}&pageNo=${requestScope.pageNo}">返回公司会议主页面</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
 					//内容区域
 					<form name="form1" action="meeting.do?method=update" method="post" onsubmit="return validMeetingEdit(this);"><b></b>
-						<input type="hidden" name="id" value="<%=request.getAttribute("id")%>">
-						<input type="hidden" name="pageSize" value="<%=request.getAttribute("pageSize")%>">
-						<input type="hidden" name="pageNo" value="<%=request.getAttribute("pageNo")%>">
+						<input type="hidden" name="id" value="${requestScope.id}">
+						<input type="hidden" name="pageSize" value="${requestScope.pageSize}">
+						<input type="hidden" name="pageNo" value="${requestScope.pageNo}">
 						<table border="0" width="100%">
 							<tr>
 								<td>会议填写人</td>
-								<td><input type="text" name="sender" maxlength="4" value="<%=request.getAttribute("sender")%>" readonly="readonly">
+								<td><input type="text" name="sender" maxlength="4" value="${requestScope.sender}" readonly="readonly">
 								</td>
 							</tr>
 
 							<tr>
 								<td>会议开始时间</td>
-								<td><input type="text" name="starttime" maxlength="100" value="<%=request.getAttribute("starttime")%>">
+								<td><input type="text" name="starttime" maxlength="100" value="${requestScope.starttime}">
 								</td>
 							</tr>
 
 							<tr>
 								<td>会议结束时间</td>
-								<td><input type="text" name="endtime" maxlength="100" value="<%=request.getAttribute("endtime")%>">
+								<td><input type="text" name="endtime" maxlength="100" value="${requestScope.endtime}">
 								</td>
 							</tr>
 
 							<tr>
 								<td>会议地点</td>
-								<td><input type="text" name="address" maxlength="100" value="<%=request.getAttribute("address")%>">
+								<td><input type="text" name="address" maxlength="100" value="${requestScope.address}">
 								</td>
 							</tr>
 
 							<tr>
 								<td>会议标题</td>
-								<td><input type="text" name="title" maxlength="100" value="<%=request.getAttribute("title")%>">
+								<td><input type="text" name="title" maxlength="100" value="${requestScope.title}">
 								</td>
 							</tr>
 
 							<tr>
 								<td>会议内容</td>
-								<td><textarea name="content" cols="60" rows="15"><%=request.getAttribute("content")%></textarea>
+								<td><textarea name="content" cols="60" rows="15">${requestScope.content}</textarea>
 								</td>
 							</tr>
 

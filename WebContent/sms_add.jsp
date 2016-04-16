@@ -5,10 +5,7 @@
 		+request.getServerName()+":"+request.getServerPort()+path+"/";
 	
 %>
-<%
-	String pageSize = (String) request.getAttribute("pageSize");
-	String pageNo = (String) request.getAttribute("pageNo");
-%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
 <html>
 	<head>
@@ -60,14 +57,14 @@
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：短消息管理&gt;&gt;新增短消息</td>
-							<td align="right"><a href="sms.do?method=list&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">返回短消息管理主页面</a></td>
+							<td align="right"><a href="sms.do?method=list&pageSize=${requestScope.pageSize}&pageNo=${requestScope.pageNo}">返回短消息管理主页面</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
 					//内容区域
 					<form name="form1" action="sms.do?method=insert" method="post" onsubmit="return validSmsAdd(this);"><b></b>
-							<input type="hidden" name="pageSize" value="<%=pageSize %>">
-							<input type="hidden" name="pageNo" value="<%=pageNo %>">
+							<input type="hidden" name="pageSize" value="${requestScope.pageSize}">
+							<input type="hidden" name="pageNo" value="${requestScope.pageNo}">
 						<table border="0" width="100%">
 							<tr>
 								<td>接受者</td>

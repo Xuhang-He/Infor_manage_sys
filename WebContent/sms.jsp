@@ -41,7 +41,7 @@
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：短消息管理</td>
-							<td align="right"><a href="sms.do?method=add&pageSize=<%= pageSize %>&pageNo=<%= pageNo %>">发送消息</a></td>
+							<td align="right"><a href="sms.do?method=add&pageSize=${requestScope.pageSize}&pageNo=${requestScope.pageNo}">发送消息</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
@@ -76,9 +76,9 @@
 								<td><%=hash.get("isRead")%></td>
 								
 								<td><a href="sms.do?method=read&id=<%= id %>
-								&pageSize=<%=pageSize %>&pageNo=<%=pageNo %>">设置已读</a>
+								&pageSize=${requestScope.pageSize}&pageNo=${requestScope.pageNo}">设置已读</a>
 									<a href="sms.do?method=delete&id=<%= id %>
-								&pageSize=<%=pageSize %>&pageNo=<%=pageNo %>">删除</a>
+								&pageSize=${requestScope.pageSize}&pageNo=${requestScope.pageNo}">删除</a>
 								</td>
 							</tr>
 							<%
@@ -119,15 +119,15 @@
 									</select>
 									</td>
 
-									<td align="center">总记录数：<%= request.getAttribute("rowCount") %></td>
+									<td align="center">总记录数：${requestScope.rowCount}</td>
 									<td align="right">
-										<a href="javascript:document.all.pageNo.value='<%=request.getAttribute("pageFirstNo") %>';
+										<a href="javascript:document.all.pageNo.value='${requestScope.pageFirstNo}';
 											document.all.form1.submit();">首页</a>	
-										<a href="javascript:document.all.pageNo.value='<%=request.getAttribute("pagePreNo") %>';
+										<a href="javascript:document.all.pageNo.value='${requestScope.pagePreNo}';
 											document.all.form1.submit();">前一页</a>	
-										<a href="javascript:document.all.pageNo.value='<%=request.getAttribute("pageNextNo") %>';
+										<a href="javascript:document.all.pageNo.value='${requestScope.pageNextNo}';
 											document.all.form1.submit();">后一页</a>	
-										<a href="javascript:document.all.pageNo.value='<%=request.getAttribute("pageLastNo") %>';
+										<a href="javascript:document.all.pageNo.value='${requestScope.pageLastNo}';
 											document.all.form1.submit();">尾页</a>		
 										<select name="pageNo" onchange="document.all.form1.submit();">
 											<%

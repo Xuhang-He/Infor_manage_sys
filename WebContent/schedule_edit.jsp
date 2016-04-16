@@ -5,10 +5,7 @@
 		+request.getServerName()+":"+request.getServerPort()+path+"/";
 	
 %>
-<% 
-	String pageSize =(String) request.getAttribute("pageSize");
-	String pageNo = (String) request.getAttribute("pageNo");
-%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
 <html>
 	<head>
@@ -70,7 +67,7 @@
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：日程安排&gt;&gt;修改日程安排</td>
-							<td align="right"><a href="schedule.do?method=list&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">返回日程安排主页面</a></td>
+							<td align="right"><a href="schedule.do?method=list&pageSize=${requestScope.pageSize}&pageNo=${requestScope.pageNo}">返回日程安排主页面</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
@@ -83,25 +80,25 @@
 						<table border="0" width="100%">
 							<tr>
 								<td>年份</td>
-								<td><input type="text" name="year" maxlength="4" value="<%=request.getAttribute("year")%>">
+								<td><input type="text" name="year" maxlength="4" value="${requestScope.year}">
 								</td>
 							</tr> 
 
 							<tr>
 								<td>月份</td>
-								<td><input type="text" name="month" maxlength="2" value="<%=request.getAttribute("month")%>">
+								<td><input type="text" name="month" maxlength="2" value="${requestScope.month}">
 								</td>
 							</tr> 
 
 							<tr>
 								<td>日期</td>
-								<td><input type="text" name="day" maxlength="2" value="<%=request.getAttribute("day")%>">
+								<td><input type="text" name="day" maxlength="2" value="${requestScope.day}">
 								</td>
 							</tr> 
 
 							<tr>
 								<td>安排内容</td>
-								<td><textarea name="plan" cols="60" rows="15"><%=request.getAttribute("plan")%></textarea>
+								<td><textarea name="plan" cols="60" rows="15">${requestScope.plan}</textarea>
 								</td>
 							</tr>
 

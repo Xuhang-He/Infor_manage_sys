@@ -1,16 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix = "c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"
 		+request.getServerName()+":"+request.getServerPort()+path+"/";
 	
 %>
-<% 
-	String pageSize =(String) request.getAttribute("pageSize");
-	String pageNo =(String) request.getAttribute("pageNo");
-%>
-<%@ page import="java.util.*" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
 <html>
 	<head>
@@ -63,35 +59,26 @@
 								<td>邮编</td>
 								<td>操作</td>
 							</tr>
-							<% 
-							
-							List<Hashtable<String,String>> list=(List<Hashtable<String,String>>) request.getAttribute("list");
-							Iterator<Hashtable<String,String>> it = list.iterator();
-							while(it.hasNext()){
-								Hashtable<String,String> hash = it.next();
-								String id = hash.get("id");
-								
-						
-								
-							%>
-							<tr >
-								<td><%=hash.get("name")%></td>
-								<td><%=hash.get("sex")%></td>
-								<td><%=hash.get("mobile")%></td>
-								<td><%=hash.get("email")%></td>
-								<td><%=hash.get("qq")%></td>
-								<td><%=hash.get("company")%></td>
-								<td><%=hash.get("address")%></td>
-								<td><%=hash.get("postcode")%></td>
-								<td><a href="address.do?method=edit&id=<%= id %>
+							<c:forEach items ="${requestScope.list}" var="hash">
+								<tr>
+								<td>${hash.name} </td>
+								<td>${hash.sex} </td>
+								<td>${hash.mobile} </td>
+								<td>${hash.email} </td>
+								<td>${hash.qq} </td>
+								<td>${hash.company} </td>
+								<td>${hash.address} </td>
+								<td>${hash.postcode} </td>
+								<td><a href="address.do?method=edit&id=${hash.id} 
 								&pageSize=${requestScope.pageSize}&pageNo=${requestScope.pageNo}">修改</a>
-									<a href="address.do?method=delete&id=<%= id %>
+									<a href="address.do?method=delete&id=${hash.id} 
 								&pageSize=${requestScope.pageSize}&pageNo=${requestScope.pageNo}">删除</a>
 								</td>
-							</tr>
-							<%
-								} 
-							%>
+								
+								
+								</tr>
+							</c:forEach>
+							
 							
 						</table>
 						
@@ -101,29 +88,16 @@
 						<form name="form1" action="address.do?method=list" method="post">
 							<table border="0" width="100%" class="pager">
 								<tr>
-									<td align="left">每页记录数：<select name="pageSize"
+									<td align="left">每页记录数：
+									<select name="pageSize"
 										onchange="document.all.pageNo.value='1';document.all.form1.submit();">
-										<option value="10"<%if(pageSize.equals("10")){ %>
-											selected="selected"<%} %>
-										>10</option>
-										<option value="25"<%if(pageSize.equals("25")){ %>
-											selected="selected"<%} %>
-										>25</option>
-										<option value="50"<%if(pageSize.equals("50")){ %>
-											selected="selected"<%} %>
-										>50</option>
-										<option value="100"<%if(pageSize.equals("100")){ %>
-											selected="selected"<%} %>
-										>100</option>
-										<option value="200"<%if(pageSize.equals("200")){ %>
-											selected="selected"<%} %>
-										>200</option>
-										<option value="300"<%if(pageSize.equals("300")){ %>
-											selected="selected"<%} %>
-										>300</option>
-										<option value="500"<%if(pageSize.equals("500")){ %>
-											selected="selected"<%} %>
-										>500</option>
+											<option value="10"<c:if test="${requestScope.pageSize}==10 ">selected</c:if>>10</option>
+											<option value="25"<c:if test="${requestScope.pageSize}==25 ">selected</c:if>>25</option>
+											<option value="50"<c:if test="${requestScope.pageSize}==50 ">selected</c:if>>50</option>
+											<option value="100"<c:if test="${requestScope.pageSize}==100 ">selected</c:if>>100</option>
+											<option value="200"<c:if test="${requestScope.pageSize}==200 ">selected</c:if>>200</option>
+											<option value="300"<c:if test="${requestScope.pageSize}==300 ">selected</c:if>>300</option>
+											<option value="500"<c:if test="${requestScope.pageSize}==500 ">selected</c:if>>500</option>
 									</select>
 									</td>
 
@@ -138,17 +112,10 @@
 										<a href="javascript:document.all.pageNo.value='${requestScope.pageLastNo}';
 											document.all.form1.submit();">尾页</a>		
 										<select name="pageNo" onchange="document.all.form1.submit();">
-											<%
-												int pageCount=(Integer) request.getAttribute("pageCount");
-											%>
-											<%
-												for(int i=1;i<=pageCount;i++){
-											%>
-											<option value="<%=i %>"<%if(pageNo.equals(i+"")){ %>
-											 selected="selected" <%} %>><%=i %></option>
-											<%
-												} 
-											%>
+											<c:forEach var="i" begin ="1" end="${requestScope.pageCount}">
+												<option value="${i }" <c:if test="${i} == ${requestScope.pageNo}">selected</c:if>>${i}</option>											
+											 </c:forEach>
+											
 											
 										</select>
 									</td>

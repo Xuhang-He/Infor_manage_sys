@@ -70,12 +70,12 @@
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：日程安排&gt;&gt;新增日程安排</td>
-							<td align="right"><a href="action/schedule.jsp?method=list&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">返回日程安排主页面</a></td>
+							<td align="right"><a href="schedule.do?method=list&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">返回日程安排主页面</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
 					//内容区域
-					<form name="form1" action="action/schedule.jsp?method=insert" method="post" onsubmit="return validScheduleAdd(this);"><b></b>
+					<form name="form1" action="schedule.do?method=insert" method="post" onsubmit="return validScheduleAdd(this);"><b></b>
 						<input type="hidden" name="pageSize" value="<%=pageSize %>">
 						<input type="hidden" name="pageNo" value="<%=pageNo %>">
 						<table border="0" width="100%">

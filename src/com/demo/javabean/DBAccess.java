@@ -9,13 +9,13 @@ import com.mysql.jdbc.Statement;
 
 public class DBAccess {
 	// 数据库驱动
-	private String drv ="com.mysql.jdbc.Driver";
+	public static String drv =null;
 	// 连接url
-	private String url ="jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false";
+	public static String url =null;
 	// 用户名
-	private String usr="root";
+	public static String usr=null;
 	// 密码
-	private String pwd= "123";
+	public static String pwd= null;
 	
 	// 数据库连接对象
 	private Connection conn = null;
@@ -128,7 +128,7 @@ public class DBAccess {
 	
 	
 	public void setDrv(String drv) {
-		this.drv = drv;
+		DBAccess.drv = drv;
 	}
 
 	public String getUrl() {
@@ -136,7 +136,7 @@ public class DBAccess {
 	}
 
 	public void setUrl(String url) {
-		this.url = url;
+		DBAccess.url = url;
 	}
 
 	public String getUsr() {
@@ -144,7 +144,7 @@ public class DBAccess {
 	}
 
 	public void setUsr(String usr) {
-		this.usr = usr;
+		DBAccess.usr = usr;
 	}
 
 	public String getPwd() {
@@ -152,7 +152,7 @@ public class DBAccess {
 	}
 
 	public void setPwd(String pwd) {
-		this.pwd = pwd;
+		DBAccess.pwd = pwd;
 	}
 
 	public Connection getConn() {

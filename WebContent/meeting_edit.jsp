@@ -66,12 +66,12 @@
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：公司会议&gt;&gt;修改公司会议</td>
-							<td align="right"><a href="action/meeting.jsp?method=list&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">返回公司会议主页面</a></td>
+							<td align="right"><a href="meeting.do?method=list&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">返回公司会议主页面</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
 					//内容区域
-					<form name="form1" action="action/meeting.jsp?method=update" method="post" onsubmit="return validMeetingEdit(this);"><b></b>
+					<form name="form1" action="meeting.do?method=update" method="post" onsubmit="return validMeetingEdit(this);"><b></b>
 						<input type="hidden" name="id" value="<%=request.getAttribute("id")%>">
 						<input type="hidden" name="pageSize" value="<%=request.getAttribute("pageSize")%>">
 						<input type="hidden" name="pageNo" value="<%=request.getAttribute("pageNo")%>">

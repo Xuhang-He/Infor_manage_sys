@@ -41,7 +41,7 @@
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：工作会议</td>
-							<td align="right"><a href="action/meeting.jsp?method=add&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">新增工作会议</a></td>
+							<td align="right"><a href="meeting.do?method=add&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">新增工作会议</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
@@ -76,9 +76,9 @@
 								<td><%=hash.get("title")%></td>
 								<td><%=hash.get("content")%></td>
 								
-								<td><a href="action/meeting.jsp?method=edit&id=<%= id %>
+								<td><a href="meeting.do?method=edit&id=<%= id %>
 								&pageSize=<%=pageSize %>&pageNo=<%=pageNo %>">修改</a>
-									<a href="action/meeting.jsp?method=delete&id=<%= id %>
+									<a href="meeting.do?method=delete&id=<%= id %>
 								&pageSize=<%=pageSize %>&pageNo=<%=pageNo %>">删除</a>
 								</td>
 							</tr>
@@ -91,7 +91,7 @@
 					</table>
 					//分页栏
 
-					<form name="form1" action="action/meeting.jsp?method=list" method="post">
+					<form name="form1" action="meeting.do?method=list" method="post">
 							<table border="0" width="100%" class="pager">
 								<tr>
 									<td align="left">每页记录数：<select name="pageSize"

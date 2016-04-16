@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>servlet</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+  	<servlet-name>InitServlet</servlet-name>
+  	<servlet-class>com.demo.servlet.InitServlet</servlet-class>
+  	<init-param>
+  		<param-name>drv</param-name>
+  		<param-value>com.mysql.jdbc.Driver</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>url</param-name>
+  		<param-value>jdbc:mysql://localhost:3306/demo?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>usr</param-name>
+  		<param-value>root</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>pwd</param-name>
+  		<param-value>123</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  	
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<servlet-class>com.demo.servlet.LoginServlet</servlet-class>
+  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/login.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<servlet-class>com.demo.servlet.RegisterServlet</servlet-class>
+  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<url-pattern>/register.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AjaxServlet</servlet-name>
+  	<servlet-class>com.demo.servlet.AjaxServlet</servlet-class>
+  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AjaxServlet</servlet-name>
+  	<url-pattern>/ajax.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<servlet-class>com.demo.servlet.LogoutServlet</servlet-class>
+  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<url-pattern>/logout.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AddressServlet</servlet-name>
+  	<servlet-class>com.demo.servlet.AddressServlet</servlet-class>
+  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddressServlet</servlet-name>
+  	<url-pattern>/address.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>SmsServlet</servlet-name>
+  	<servlet-class>com.demo.servlet.SmsServlet</servlet-class>
+  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>SmsServlet</servlet-name>
+  	<url-pattern>/sms.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ScheduleServlet</servlet-name>
+  	<servlet-class>com.demo.servlet.ScheduleServlet</servlet-class>
+  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ScheduleServlet</servlet-name>
+  	<url-pattern>/schedule.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>WorklogServlet</servlet-name>
+  	<servlet-class>com.demo.servlet.WorklogServlet</servlet-class>
+  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>WorklogServlet</servlet-name>
+  	<url-pattern>/worklog.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>NoticeServlet</servlet-name>
+  	<servlet-class>com.demo.servlet.NoticeServlet</servlet-class>
+  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>NoticeServlet</servlet-name>
+  	<url-pattern>/notice.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>MeetingServlet</servlet-name>
+  	<servlet-class>com.demo.servlet.MeetingServlet</servlet-class>
+  
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MeetingServlet</servlet-name>
+  	<url-pattern>/meeting.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</web-app>

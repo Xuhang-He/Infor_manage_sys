@@ -60,12 +60,12 @@
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：短消息管理&gt;&gt;新增短消息</td>
-							<td align="right"><a href="action/sms.jsp?method=list&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">返回短消息管理主页面</a></td>
+							<td align="right"><a href="sms.do?method=list&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">返回短消息管理主页面</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
 					//内容区域
-					<form name="form1" action="action/sms.jsp?method=insert" method="post" onsubmit="return validSmsAdd(this);"><b></b>
+					<form name="form1" action="sms.do?method=insert" method="post" onsubmit="return validSmsAdd(this);"><b></b>
 							<input type="hidden" name="pageSize" value="<%=pageSize %>">
 							<input type="hidden" name="pageNo" value="<%=pageNo %>">
 						<table border="0" width="100%">

@@ -41,7 +41,7 @@
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：公司公告</td>
-							<td align="right"><a href="action/notice.jsp?method=add&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">新增公告</a></td>
+							<td align="right"><a href="notice.do?method=add&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">新增公告</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
@@ -72,9 +72,9 @@
 								<td><%=hash.get("content")%></td>
 								<td><%=hash.get("sendtime")%></td>
 								
-								<td><a href="action/notice.jsp?method=edit&id=<%= id %>
+								<td><a href="notice.do?method=edit&id=<%= id %>
 								&pageSize=<%=pageSize %>&pageNo=<%=pageNo %>">修改</a>
-									<a href="action/notice.jsp?method=delete&id=<%= id %>
+									<a href="notice.do?method=delete&id=<%= id %>
 								&pageSize=<%=pageSize %>&pageNo=<%=pageNo %>">删除</a>
 								</td>
 							</tr>
@@ -87,7 +87,7 @@
 					</table>
 					//分页栏
 
-					<form name="form1" action="action/notice.jsp?method=list" method="post">
+					<form name="form1" action="notice.do?method=list" method="post">
 							<table border="0" width="100%" class="pager">
 								<tr>
 									<td align="left">每页记录数：<select name="pageSize"

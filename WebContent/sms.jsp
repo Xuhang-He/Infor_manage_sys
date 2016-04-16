@@ -41,7 +41,7 @@
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：短消息管理</td>
-							<td align="right"><a href="action/sms.jsp?method=add&pageSize=<%= pageSize %>&pageNo=<%= pageNo %>">发送消息</a></td>
+							<td align="right"><a href="sms.do?method=add&pageSize=<%= pageSize %>&pageNo=<%= pageNo %>">发送消息</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
@@ -75,9 +75,9 @@
 								<td><%=hash.get("sendertime")%></td>
 								<td><%=hash.get("isRead")%></td>
 								
-								<td><a href="action/sms.jsp?method=read&id=<%= id %>
+								<td><a href="sms.do?method=read&id=<%= id %>
 								&pageSize=<%=pageSize %>&pageNo=<%=pageNo %>">设置已读</a>
-									<a href="action/sms.jsp?method=delete&id=<%= id %>
+									<a href="sms.do?method=delete&id=<%= id %>
 								&pageSize=<%=pageSize %>&pageNo=<%=pageNo %>">删除</a>
 								</td>
 							</tr>
@@ -90,7 +90,7 @@
 					</table>
 					//分页栏
 
-				<form name="form1" action="action/sms.jsp?method=list" method="post">
+				<form name="form1" action="sms.do?method=list" method="post">
 							<table border="0" width="100%" class="pager">
 								<tr>
 									<td align="left">每页记录数：<select name="pageSize"

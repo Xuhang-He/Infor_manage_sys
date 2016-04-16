@@ -41,7 +41,7 @@
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：工作记录</td>
-							<td align="right"><a href="action/worklog.jsp?method=add&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">新增工作记录</a></td>
+							<td align="right"><a href="worklog.do?method=add&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">新增工作记录</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
@@ -76,9 +76,9 @@
 								<td><%=hash.get("description")%></td>
 								<td><%=hash.get("logtime")%></td>
 								
-								<td><a href="action/worklog.jsp?method=edit&id=<%= id %>
+								<td><a href="worklog.do?method=edit&id=<%= id %>
 								&pageSize=<%=pageSize %>&pageNo=<%=pageNo %>">修改</a>
-									<a href="action/worklog.jsp?method=delete&id=<%= id %>
+									<a href="worklog.do?method=delete&id=<%= id %>
 								&pageSize=<%=pageSize %>&pageNo=<%=pageNo %>">删除</a>
 								</td>
 							</tr>
@@ -89,7 +89,7 @@
 					</table>
 					//分页栏
 
-					<form name="form1" action="action/worklog.jsp?method=list" method="post">
+					<form name="form1" action="worklog.do?method=list" method="post">
 							<table border="0" width="100%" class="pager">
 								<tr>
 									<td align="left">每页记录数：<select name="pageSize"

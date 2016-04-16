@@ -76,12 +76,12 @@
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：工作记录&gt;&gt;新增工作记录</td>
-							<td align="right"><a href="action/worklog.jsp?method=list&pageSize=<%= pageSize %>&pageNo=<%= pageNo%>">返回工作记录主页面</a></td>
+							<td align="right"><a href="worklog.do?method=list&pageSize=<%= pageSize %>&pageNo=<%= pageNo%>">返回工作记录主页面</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
 					//内容区域
-					<form name="form1" action="action/worklog.jsp?method=insert" method="post" onsubmit="return validWorklogAdd(this);"><b></b>
+					<form name="form1" action="worklog.do?method=insert" method="post" onsubmit="return validWorklogAdd(this);"><b></b>
 						<input type="hidden" name="pageSize" value="<%=pageSize %>">
 						<input type="hidden" name="pageNo" value="<%=pageNo %>">
 						<table border="0" width="100%">

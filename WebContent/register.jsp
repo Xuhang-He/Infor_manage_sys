@@ -105,7 +105,7 @@
 						return false;
 					}else{
 
-						send('action/checkUsername.jsp?username='+username);
+						send('ajax.do?username='+username);
 					}
 				}
 				
@@ -126,7 +126,7 @@
 			<tr>
 				<td width="60%"></td>
 				<td>
-					<form name="form1" action="action/register.jsp" method="post" onsubmit="return validRegister(this);">
+					<form name="form1" action="register.do" method="post" onsubmit="return validRegister(this);">
 						<table width="200" border="0">
 							<tr>
 								<td colspan="2">

@@ -47,7 +47,7 @@
 						<table width="100%" class="position">
 							<tr>
 								<td>当前位置：通讯录管理</td>
-								<td align="right"><a href="action/address.jsp?method=add&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">新增联系人</a></td>
+								<td align="right"><a href="address.do?method=add&pageSize=<%= pageSize %>&pageNo=<%=pageNo %>">新增联系人</a></td>
 								<td width="20"></td>
 							</tr>
 						</table>
@@ -83,9 +83,9 @@
 								<td><%=hash.get("company")%></td>
 								<td><%=hash.get("address")%></td>
 								<td><%=hash.get("postcode")%></td>
-								<td><a href="action/address.jsp?method=edit&id=<%= id %>
+								<td><a href="address.do?method=edit&id=<%= id %>
 								&pageSize=<%=pageSize %>&pageNo=<%=pageNo %>">修改</a>
-									<a href="action/address.jsp?method=delete&id=<%= id %>
+									<a href="address.do?method=delete&id=<%= id %>
 								&pageSize=<%=pageSize %>&pageNo=<%=pageNo %>">删除</a>
 								</td>
 							</tr>
@@ -98,7 +98,7 @@
 						
 						
 						//分页栏
-						<form name="form1" action="action/address.jsp?method=list" method="post">
+						<form name="form1" action="address.do?method=list" method="post">
 							<table border="0" width="100%" class="pager">
 								<tr>
 									<td align="left">每页记录数：<select name="pageSize"

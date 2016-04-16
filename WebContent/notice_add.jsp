@@ -57,12 +57,12 @@
 					<table width="100%" class="position">
 						<tr>
 							<td>当前位置：公司公告&gt;&gt;新增公司公告</td>
-							<td align="right"><a href="action/address.jsp?method=list&pageSize=<%= pageSize %>&pageNo=<%= pageNo%>">返回公司公告主页面</a></td>
+							<td align="right"><a href="notice.do?method=list&pageSize=<%= pageSize %>&pageNo=<%= pageNo%>">返回公司公告主页面</a></td>
 							<td width="20"></td>
 						</tr>
 					</table>
 					//内容区域
-					<form name="form1" action="action/notice.jsp?method=insert" method="post" onsubmit="return validNoticeAdd(this);"><b></b>
+					<form name="form1" action="notice.do?method=insert" method="post" onsubmit="return validNoticeAdd(this);"><b></b>
 						<input type="hidden" name="pageSize" value="<%=pageSize %>">
 							<input type="hidden" name="pageNo" value="<%=pageNo %>">
 						<table border="0" width="100%">

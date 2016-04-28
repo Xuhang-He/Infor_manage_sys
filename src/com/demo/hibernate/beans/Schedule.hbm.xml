@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-24 22:36:56 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.demo.hibernate.beans.Schedule" table="schedule" >
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="50" not-null="true" />
+        </property>
+        <property name="year" type="java.lang.Integer">
+            <column name="year" />
+        </property>
+        <property name="month" type="java.lang.Integer">
+            <column name="month" />
+        </property>
+        <property name="day" type="java.lang.Integer">
+            <column name="day" />
+        </property>
+        <property name="plan" type="string">
+            <column name="plan" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

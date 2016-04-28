@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-24 22:36:56 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.demo.hibernate.beans.Meeting" table="meeting">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="sender" type="string">
+            <column name="sender" length="50" not-null="true" />
+        </property>
+        <property name="starttime" type="string">
+            <column name="starttime" length="20" />
+        </property>
+        <property name="endtime" type="string">
+            <column name="endtime" length="20" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="100" />
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="100" />
+        </property>
+        <property name="content" type="string">
+            <column name="content" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>
